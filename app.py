@@ -3,7 +3,7 @@ from chat import analyze_image
 
 st.set_page_config(page_title="Medical Image Analysis Chatbot", layout="wide")
 
-st.title("Medical Image Analysis Chatbot")
+st.title("MediMind: Your Personal Medical Image Analysis Chatbot")
 
 st.header("Image Upload and Analysis")
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
