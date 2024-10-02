@@ -40,6 +40,6 @@ def analyze_image(uploaded_file):
     image = PIL.Image.open(io.BytesIO(uploaded_file.getvalue()))
 
     response = model.generate_content([image, system_prompt])
-    classify_response = model.generate_content([image, classify_model])
+    
 
-    return image, response.text , classify_response.text
+    return image, response.text 

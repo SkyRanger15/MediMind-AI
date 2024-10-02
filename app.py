@@ -11,7 +11,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png
 submit_button = st.button("Analyze Image")
 
 if submit_button and uploaded_file is not None:
-    image, analysis, report = analyze_image(uploaded_file)
+    image, analysis = analyze_image(uploaded_file)
     
     # Display the image
     st.image(image, caption="Uploaded Image", use_column_width=True)
@@ -19,12 +19,7 @@ if submit_button and uploaded_file is not None:
     # Display the response
     st.write("Analysis:")
     st.write(analysis)
-
-    st.subheader("Classification Model Output")
-
-    # Debugging output to check the raw classification response
-    st.write("Classification Response:")
-    st.write(report)  
+  
 
 st.sidebar.header("About")
 st.sidebar.info(
