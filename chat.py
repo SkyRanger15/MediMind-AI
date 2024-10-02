@@ -4,12 +4,19 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 import io
+import json
 
 load_dotenv()
 os.environ['GOOGLE_API_KEY'] = os.getenv('GOOGLE_API_KEY')
 
 with open('system_prompt.txt', 'r') as file:
     system_prompt = file.read()
+
+with open('classification_prompt_structure.txt', 'r') as file:
+    classify_model = file.read()
+
+with open('classification_structure.json', 'r') as file:
+    classification_structure = json.load(file)
 
 generation_config = {
   "temperature": 0.4,
@@ -32,7 +39,7 @@ def analyze_image(uploaded_file):
     # Convert the uploaded file to a PIL Image
     image = PIL.Image.open(io.BytesIO(uploaded_file.getvalue()))
 
-    # Generate content using the image and system prompt
     response = model.generate_content([image, system_prompt])
-    
-    return image, response.text
+    classify_response = model.generate_content([image, classify_model])
+
+    return image, response.text , classify_response.text

@@ -1,0 +1,8 @@
+{
+    "Abnormality Type": "string",
+    "Size (cm)": "float",
+    "Location": "string",
+    "Confidence Score (%)": "float",
+    "Further Evaluation Required": "boolean"
+  }
+  
