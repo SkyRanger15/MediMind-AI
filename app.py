@@ -21,4 +21,17 @@ if submit_button and uploaded_file is not None:
     st.write(analysis)
 
 st.sidebar.header("About")
-st.sidebar.info("PBL Project By Soumyajit")
+st.sidebar.info(
+     """
+    **Steps to Analyze a Medical Image:**
+    
+    1. **Upload Image**: Click on 'Choose an image' and select a medical image (JPG, JPEG, or PNG format).
+    2. **Analyze**: Once uploaded, click on the 'Analyze Image' button to get insights on the image.
+    3. **Review Analysis**: The uploaded image and the chatbot's analysis will be displayed below.
+
+    **Important Notes:**
+    - Ensure the image is clear and in a proper resolution.
+    - Supported file formats: JPG, JPEG, PNG.
+    - Please avoid uploading unrelated or low-quality images for better results.
+    """
+)
